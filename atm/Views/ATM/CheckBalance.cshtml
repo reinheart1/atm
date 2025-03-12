@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATM Login</title>
+    <title>Check Balance</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -18,41 +18,43 @@
             color: white;
         }
 
-        .login-container {
+        .balance-container {
             padding: 30px;
             border-radius: 15px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             max-width: 400px;
             width: 100%;
-        }
-
-        .form-control {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
             text-align: center;
         }
 
-        .btn-primary {
-            background-color: #ff7b00;
-            border: none;
+        .balance-amount {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .btn-back {
             font-size: 18px;
             padding: 10px;
-            border-radius: 10px;
-            width: 100%;
+            background-color: #ff7b00;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
         }
+
+            .btn-back:hover {
+                background-color: #ff9c42;
+            }
     </style>
 </head>
 <body>
-    <div class="login-container text-center">
-        <h2>ATM Login</h2>
-        <form method="post">
-            <input type="text" name="cardNumber" class="form-control mb-3" placeholder="Card Number" required />
-            <input type="password" name="pin" class="form-control mb-3" placeholder="PIN" required />
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
-        <p class="text-warning mt-3">@ViewBag.Message</p>
+    <div class="balance-container">
+        <h2>Account Balance</h2>
+        <p class="balance-amount">₱@ViewBag.Balance</p>
+        <a href="@Url.Action("MainMenu", "ATM")" class="btn-back">Back to Menu</a>
     </div>
 </body>
 </html>
